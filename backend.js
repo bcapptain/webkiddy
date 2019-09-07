@@ -1,16 +1,12 @@
 var express = require('express');
 var app = express();
 var http = require('http').createServer(app);
-//var http_get = require('http');
-
 var io = require('socket.io')(http);
 
 const {execFile} = require('child_process');
-
 const {execFileSync} = require('child_process');
 var data = '';
 const EventEmitter = require('events');
-
 class MyEmitter extends EventEmitter {
 }
 
