@@ -1,0 +1,196 @@
+<!doctype html>
+<!--suppress ALL -->
+<html>
+<head>
+    <title>node.js && Socket.IO Demo</title>
+
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="text-center bg-dark">
+    <h1 class="text-white-50">WebKiddy</h1>
+    <p class="text-white-50">Node.js based network pentesting front- and backend.</p>
+</div>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <!--        Scan Networks-->
+        <div class="col-sm-6">
+            <h3>Scan Networks</h3>
+            <div class="table">
+                <div class="btn-group" style="display: inline">
+                    <button aria-expanded="false" aria-haspopup="true" class="btn btn-warning btn-sm dropdown-toggle"
+                            data-toggle="dropdown" id="btn_networks" type="button">
+                        Waiting for data..
+                        <div class="spinner-border spinner-border-sm" id="spinner_networks"></div>
+                    </button>
+                    <div class="dropdown-menu" id="scan_dropdown">
+                    </div>
+                </div>
+
+                <input class="form-control-sm" id="input_cidr" placeholder="CIDR (override)"
+                       style="display: inline; width: 130px;" type="text" value="">
+                </input>
+
+                <div class="custom-control custom-checkbox" style="display: inline; font-size: 1rem">
+                    <input class="custom-control-input" id="arpcheck" type="checkbox">
+                    <label class="custom-control-label" data-toggle="tooltip" for="arpcheck"
+                           title="Perform a much faster ARP scan">Layer 2 Scan</label>
+                </div>
+
+                <button class="btn btn-success btn-sm" disabled id="btn_scan" style="display: inline;" type="button">
+                    Disvover Hosts
+                </button>
+
+                <div id="stopwatch" style="display: none">
+                    <p style="margin-left: -5px; display: inline;">[</p>
+                    <p id="time_m" style="margin-left: -5px; display: inline;">00</p>:
+                    <p id="time_s" style="margin-left: -5px; display: inline;">00</p>.
+                    <p id="time_ms" style="margin-left: -5px; display: inline;">0</p>
+                    <p style="margin-left: -5px; display: inline;">]</p>
+                </div>
+            </div>
+
+
+            <table class="table table-sm table-borderless table-sm">
+
+                <thead id="thead_neighbors" style="display: none">
+                <td>Host</td>
+                <td>
+                    Action
+                    <!--<div class="btn-group">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                    </button>
+                    <div class="dropdown-menu">
+                        <p>NMAP Options</p>
+                        <div class="dropdown-divider"></div>
+                        <label for="fast">Fast (-F)</label>
+                        <input type="checkbox" checked=true id="fast">
+                    </div>-->
+        </div>
+        </td>
+        <td>Open Ports</td>
+        </thead>
+        <tbody id="neighbors">
+
+        </tbody>
+
+
+        </table>
+
+
+    </div>
+    <!--        Backend Information-->
+    <div class="col-sm-6">
+        <h3>Backend Information</h3>
+        <table class="table table-responsive table-borderless table-sm">
+            <tbody id="infotable_body">
+            <tr id="localip">
+                <td>Local IP</td>
+                <!--                    <td id="spinner_localip"><div class="spinner-border spinner-border-sm" style="float: right;"></div></td>-->
+            </tr>
+            <tr id="publicip">
+                <td>Public IP</td>
+                <td id="spinner_publicip">
+                    <div class="spinner-border spinner-border-sm" style="float: right;"></div>
+                </td>
+            </tr>
+            <tr id="isp">
+                <td>ISP</td>
+                <td id="spinner_isp">
+                    <div class="spinner-border spinner-border-sm" style="float: right;"></div>
+                </td>
+            </tr>
+            <tr id="gatewayip">
+                <td>Gateway IP</td>
+                <td id="spinner_gateway">
+                    <div class="spinner-border spinner-border-sm" style="float: right;"></div>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+
+        <!--        Output-->
+        <div class="table table-responsive">
+            <h3>Output</h3>
+            <textarea class="text-white-50 bg-dark" cols="80" id="txtarea_hydra" rows="15" style="width: 100%;">
+                </textarea>
+        </div>
+
+        <!-- Command-->
+        <div class="table table-responsive">
+            <h3>Run Backend Command</h3>
+            <label for="command_command" style="display: block;">Command:</label>
+            <input class="" id="command_command" placeholder="" type="text">
+            <label for="command_args" style="display: block;">Arguments:</label>
+            <input class="" id="command_args" placeholder="Comma seperated list of arguments" type="text">
+            <button class="btn btn-info btn-sm" id="btn_command" type="submit">Run</button>
+        </div>
+
+        <!--        Bruteforce-->
+        <div class="table table-responsive">
+            <h3>Bruteforce</h3>
+
+
+            <form id="bruteforce">
+                <div class="form-group">
+                    <label for="bf_ip">IP address:</label>
+                    <input class="form-control" id="bf_ip" placeholder="Enter IP" type="text">
+                    <!--                        <small class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                </div>
+                <div class="form-group">
+                    <label for="protocol">Protocol:</label>
+                    <select id="protocol" name="protocol">
+                        <option value="ssh">SSH</option>
+                        <option value="smb">SMB</option>
+                        <option value="http-head">HTTP-Basic(HEAD)</option>
+                        <option value="ftp">FTP</option>
+                        <option value="telnet">Telnet</option>
+                        <option value="vnc">VNC</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input class="form-control" id="username" placeholder="root" type="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="pwdlist">Password List:</label>
+                    <select id="pwdlist" name="pwdlist">
+                    </select>
+                </div>
+                <button class="btn btn-info btn-sm" id="btn_brute" type="submit">Brute!</button>
+            </form>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div class="row">
+
+
+</div>
+
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script src="/jquery/jquery.js"></script>
+<script src="/popper/popper.js"></script>
+<script src="/bootstrap/js/bootstrap.js"></script>
+<script src="/public/client.js"></script>
+
+
+</body>
+</html>

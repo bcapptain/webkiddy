@@ -1,0 +1,6 @@
+#!/bin/bash
+IPADDR=$1
+
+nmap -T4 $IPADDR -oX - | xmlstarlet sel -t -m "//nmaprun/host/ports/port/@portid" -v . -n
+
+exit 0

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+SUBNET=$1
+
+if [ "$2" == "arp" ]; then
+
+	##Get the Interface
+	INTERFACE=$(ip route show to match $1 | tail -n1 | awk '{print $3}' | xargs)
+	
+	arp-scan -I $INTERFACE -l | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}" | uniq | sort
+	exit 0;
+fi	
+
+
+nmap -sn $SUBNET -oX /tmp/subnet.xml > /dev/null 
+
+COUNT=$(xmlstarlet sel -t -v "count(//nmaprun/host/address)" -v . -n /tmp/subnet.xml | xargs)
+
+
+if [ "$COUNT" != "0" ]; then 
+
+	cat /tmp/subnet.xml | xmlstarlet sel -t -m "/nmaprun/host/address/@addr" -v . -n
+else 	
+	echo "No Hosts found."
+        rm -f /tmp/subnet.xml
+	exit -1
+fi
+rm -f /tmp/subnet.xml
+
+exit 0

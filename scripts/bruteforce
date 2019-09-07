@@ -1,0 +1,41 @@
+#!/bin/bash
+USER=$1
+PROTOCOL=$2
+IP=$3
+WORDLIST=$4
+
+function check(){
+	if [[ $USER != "" ]]; then
+		if [[ $PROTOCOL != "" ]]; then
+			if [[ $IP != "" ]]; then
+				if [[ $WORDLIST != "" ]]; then
+					return 0;
+				fi
+			fi
+		
+		fi
+
+	fi
+
+	echo "Usage: " $0 '<user> <protocol> <ip> <wordlist>'
+	exit 1
+
+}
+
+
+function run(){
+	hydra -V -l $USER -P wordlists/$WORDLIST -t 6 $PROTOCOL://$IP
+}
+
+function clean(){
+rm -rf ./hydra.restore
+}
+
+function main(){
+	check;
+	clean;
+	run;
+	exit 0;
+}
+
+main;
