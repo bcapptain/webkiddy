@@ -33,8 +33,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/backend.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-526">
-                  <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+                <state relative-caret-position="139">
+                  <caret line="284" lean-forward="true" selection-start-line="284" selection-end-line="284" />
                   <folding>
                     <element signature="n#MyEmitter#0" />
                     <element signature="e#620#668#0" />
@@ -134,7 +134,7 @@
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="248">
-                  <caret line="41" column="32" lean-forward="true" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+                  <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -157,7 +157,7 @@
             <entry file="file://$PROJECT_DIR$/public/client.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-1520">
-                  <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+                  <caret line="5" selection-start-line="5" selection-end-line="5" />
                   <folding>
                     <element signature="e#2915#5173#0" />
                     <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
@@ -195,6 +195,9 @@
       <find>service</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -216,6 +219,7 @@
     <option name="width" value="1400" />
     <option name="height" value="844" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -246,6 +250,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.16.1" />
     <property name="jsx.switch.disabled" value="true" />
@@ -255,7 +260,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -305,12 +310,12 @@
       <workItem from="1566936404918" duration="13497000" />
       <workItem from="1567028740515" duration="312000" />
       <workItem from="1567070062481" duration="10256000" />
-      <workItem from="1567085245655" duration="19453000" />
+      <workItem from="1567085245655" duration="19554000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231616000" />
+    <option name="totallyTimeSpent" value="231717000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="31" width="1926" height="885" extended-state="6" />
@@ -321,7 +326,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49763033" weight="0.328084" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49209693" visible="true" weight="0.32789117" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49209693" visible="true" weight="0.32833788" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4997367" weight="0.39763778" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -396,8 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="41" column="32" lean-forward="true" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+        <state relative-caret-position="-7">
+          <caret line="62" column="20" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -415,10 +420,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1520">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#2915#5173#0" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="e#5222#5651#0" />
+            <element signature="e#5709#5920#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-526">
-          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        <state relative-caret-position="139">
+          <caret line="284" lean-forward="true" selection-start-line="284" selection-end-line="284" />
           <folding>
             <element signature="n#MyEmitter#0" />
             <element signature="e#620#668#0" />
@@ -482,19 +500,6 @@
             <element signature="e#20528#20660#0" />
             <element signature="e#20711#20858#0" />
             <element signature="e#20903#20946#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1520">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#2915#5173#0" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="e#5222#5651#0" />
-            <element signature="e#5709#5920#0" />
           </folding>
         </state>
       </provider>
