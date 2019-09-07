@@ -7,9 +7,7 @@
     <bookmark url="file://$PROJECT_DIR$/backend.js" line="186" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38c949a7-5196-4fce-8fb8-3bb519181ad0" name="Default Changelist" comment="Create Repo">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="38c949a7-5196-4fce-8fb8-3bb519181ad0" name="Default Changelist" comment="Create Repo" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -32,7 +30,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/backend.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="147">
@@ -99,6 +97,15 @@
                     <element signature="e#20711#20858#0" />
                     <element signature="e#20903#20946#0" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/README.md">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="114">
+                  <caret line="6" column="8" lean-forward="true" selection-end-line="16" selection-end-column="89" />
                 </state>
               </provider>
             </entry>
@@ -320,7 +327,7 @@
       <workItem from="1566936404918" duration="13497000" />
       <workItem from="1567028740515" duration="312000" />
       <workItem from="1567070062481" duration="10256000" />
-      <workItem from="1567085245655" duration="20532000" />
+      <workItem from="1567085245655" duration="20538000" />
     </task>
     <task id="LOCAL-00001" summary="Create Repo">
       <created>1567887190923</created>
@@ -333,13 +340,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232695000" />
+    <option name="totallyTimeSpent" value="232701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="31" width="1926" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992224" visible="true" weight="0.17386723" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992224" visible="true" weight="0.17386723" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5007776" side_tool="true" weight="0.18062139" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -523,6 +530,13 @@
             <element signature="e#20711#20858#0" />
             <element signature="e#20903#20946#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="8" lean-forward="true" selection-end-line="16" selection-end-column="89" />
         </state>
       </provider>
     </entry>
