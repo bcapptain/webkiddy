@@ -1,5 +1,3 @@
-**
-
 # WebKiddy 
 ## A Node.js based network pentesting front- and backend.
 
