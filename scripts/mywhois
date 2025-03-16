@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Check if whois is installed
+if ! command -v whois &> /dev/null; then
+    echo "Error: whois is not installed"
+    exit 1
+fi
+
+# Check if IP address is provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 <ip_address>"
+    exit 1
+fi
+
+IP=$1
+
+# Get ISP information using whois
+whois $IP | grep -i "orgname\|org-name\|netname" | head -n 1 | cut -d: -f2- | sed 's/^[ \t]*//'
+
+exit 0 

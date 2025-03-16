@@ -1,0 +1,17 @@
+version: '3.8'
+
+volumes:
+  wordlists:
+
+services:
+  webkiddy:
+    build: .
+    volumes:
+      - wordlists:/app/wordlists
+    # Required for network scanning capabilities
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    network_mode: "host"  # This means the container will use host's network directly
+    security_opt:
+      - seccomp:unconfined  # Required for some network tools 

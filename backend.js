@@ -230,12 +230,11 @@ io.on('connection', function (socket) {
 
     // These Functions get called on "load" of socket.io
     function getLocalIP() {
-
         const spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 1000;
-
-        let hostip = spawn('hostname', ['-I'], [/*options*/]);
+        const options = {
+            uid: 1000
+        };
+        let hostip = spawn('hostname', ['-I'], options);
 
         hostip.stdout.on('data', function (data) {
             console.log(`Hostip output: ${data.toString()}`);
@@ -256,9 +255,10 @@ io.on('connection', function (socket) {
 
     function getNetworks() {
         const spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 1000;
-        let get_networks = spawn('get_networks', [],[/*options*/]);
+        const options = {
+            uid: 1000
+        };
+        let get_networks = spawn('get_networks', [], options);
         let list = [];
 
         get_networks.stdout.on('data', function (data) {
@@ -281,10 +281,10 @@ io.on('connection', function (socket) {
 
     function getPublicIP() {
         const spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 1000;
-
-        let publicip = spawn('curl', ['-s', 'https://canihazip.com/s'], [/*options*/]);
+        const options = {
+            uid: 1000
+        };
+        let publicip = spawn('curl', ['-s', 'https://ipinfo.io/ip'], options);
 
         publicip.stdout.on('data', function (data) {
             console.log(`getPublicIP output: ${data.toString()}`);
@@ -305,9 +305,10 @@ io.on('connection', function (socket) {
 
     function getISP(publicip) {
         const spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 1000;
-        let mywhois = spawn('mywhois', [publicip], [/*options*/]);
+        const options = {
+            uid: 1000
+        };
+        let mywhois = spawn('mywhois', [publicip], options);
 
         mywhois.stdout.on('data', function (data) {
             console.log(`getISP output: ${data.toString().split('\n')}`);
@@ -326,9 +327,10 @@ io.on('connection', function (socket) {
 
     function getGatewayIP() {
         const spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 1000;
-        let getgateway = spawn('get_gateway', [], [/*options*/]);
+        const options = {
+            uid: 1000
+        };
+        let getgateway = spawn('get_gateway', [], options);
 
         getgateway.stdout.on('data', function (data) {
             console.log(`getGateway output: ${data.toString()}`);
@@ -413,15 +415,15 @@ io.on('connection', function (socket) {
     socket.on('hydra', function (bruteforcedata) {
         console.log('Received Brute Force Data: ' + JSON.stringify(bruteforcedata));
         var spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 1000;
+        const options = {
+            uid: 1000
+        };
         let user = bruteforcedata.user;
         let protocol = bruteforcedata.protocol;
         let hostip = bruteforcedata.hostip;
         let wordlist = bruteforcedata.wordlist;
 
-
-        const bruteforce = spawn('bruteforce', [user, protocol, hostip, wordlist], [/*options*/]);
+        const bruteforce = spawn('bruteforce', [user, protocol, hostip, wordlist], options);
 
         bruteforce.stdout.on('data', function (data) {
             console.log(`Hydra output: ${data.toString()}`);
@@ -441,10 +443,11 @@ io.on('connection', function (socket) {
     });
 
     socket.on('cancelHydra', function () {
-        const options = new Object();
-        options.uid = 1000;
+        const options = {
+            uid: 1000
+        };
         const spawn = require('child_process').spawn;
-        const kill = spawn('pkill', ['hydra'], [/*options*/]);
+        const kill = spawn('pkill', ['hydra'], options);
 
         kill.stdout.on('data', function (data) {
             console.log(`Hydra output: ${data.toString()}`);
@@ -465,20 +468,17 @@ io.on('connection', function (socket) {
     socket.on('curl', function (curldata) {
         console.log('Received Curl Data: ' + JSON.stringify(curldata));
         var spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 1000;
-
+        const options = {
+            uid: 1000
+        };
         var target = "http://" + curldata.hostip + ":" + curldata.port;
-
         let args = "-v";
-
         if (curldata.port === "443") {
             console.log("443!");
             target = "https://" + curldata.hostip + ":" + curldata.port;
             args = "-vk";
         }
-
-        let curl = spawn('curl', [args, target], [/*options*/]);
+        let curl = spawn('curl', [args, target], options);
 
         curl.stdout.on('data', function (data) {
             console.log(`Curl output: ${data.toString()}`);
@@ -500,10 +500,10 @@ io.on('connection', function (socket) {
     socket.on('service_detect', function (servicedata) {
         console.log('Received Service Data: ' + JSON.stringify(servicedata));
         var spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 1000;
-
-        let idservice = spawn('nmap', ['-sV', '-T4', '-Pn', '-p' + servicedata.port, servicedata.hostip], [/*options*/]);
+        const options = {
+            uid: 1000
+        };
+        let idservice = spawn('nmap', ['-sV', '-T4', '-Pn', '-p' + servicedata.port, servicedata.hostip], options);
 
         idservice.stdout.on('data', function (data) {
             console.log(`Ident Service output: ${data.toString()}`);
@@ -525,10 +525,10 @@ io.on('connection', function (socket) {
     socket.on('nikto', function (niktodata) {
         console.log('Received Nikto Data: ' + JSON.stringify(niktodata));
         var spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 1000;
-
-        let nikto = spawn('nikto', ['-h', niktodata.hostip, '-p', niktodata.port], [/*options*/]);
+        const options = {
+            uid: 1000
+        };
+        let nikto = spawn('nikto', ['-h', niktodata.hostip, '-p', niktodata.port], options);
 
         nikto.stdout.on('data', function (data) {
             console.log(`Nikto output: ${data.toString()}`);
@@ -548,11 +548,11 @@ io.on('connection', function (socket) {
     });
 
     socket.on('scan_subnet', function (network) {
-
         console.log('Submitted Network: ' + network);
         var spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 0;
+        const options = {
+            uid: 0
+        };
         let args = '';
         if (network.indexOf('\:') > -1) {
             args = 'arp';
@@ -560,7 +560,7 @@ io.on('connection', function (socket) {
             console.log("Arp Scan requested. Subnet: " + network);
         }
 
-        let get_subnethosts = spawn('get_subnethosts', [network, args], [options]);
+        let get_subnethosts = spawn('get_subnethosts', [network, args], options);
 
         get_subnethosts.stdout.on('data', function (data) {
             console.log(`get_subnethosts output: ${data.toString()}`);
@@ -587,20 +587,10 @@ io.on('connection', function (socket) {
     socket.on('command', function (command) {
         console.log('Received Command Data: ' + JSON.stringify(command));
         var spawn = require('child_process').spawn;
-        const options = new Object();
-        options.uid = 1000;
-
-
-        var args = [];
-
-        if (command.args.length > 0) {
-            args = command.args.split(',');
-        }
-        console.log('Args[0]: ' + args[0]);
-        console.log('Args[1]: ' + args[1]);
-
-
-        let run_command = spawn(command.command, args, [/*options*/]);
+        const options = {
+            uid: 1000
+        };
+        let run_command = spawn(command.command, args, options);
 
         run_command.stdout.on('data', function (data) {
             console.log(`Command output: ${data.toString()}`);
